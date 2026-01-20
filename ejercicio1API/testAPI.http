@@ -1,0 +1,13 @@
+PUT http://localhost:8000/items/2 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Foo",
+    "description": "A very nice Item",
+    "price": 35.4,
+    "tax": 3.2
+}
+###
+POST http://localhost:8000/ HTTP/1.1
+###
+DELETE http://localhost:8000/delete/1 HTTP/1.1

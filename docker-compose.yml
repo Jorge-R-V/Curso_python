@@ -1,0 +1,23 @@
+  services:
+        mongo:
+            image: mongo
+            container_name: mongoDB
+            restart: always
+            environment:
+                MONGO_INITDB_ROOT_USERNAME: root
+                MONGO_INITDB_ROOT_PASSWORD: pass123
+            volumes:
+                - mongoData:/data/db
+        mongo-express:
+            image: mongo-express
+            container_name: mongoGUI
+            restart: always
+            ports:
+                - 8081:8081
+            environment:
+                ME_CONFIG_MONGODB_URL: mongodb://root:pass123@mongo:27017/
+                ME_CONFIG_BASICAUTH_ENABLED: true
+                ME_CONFIG_BASICAUTH_USERNAME: mongoexpressuser
+                ME_CONFIG_BASICAUTH_PASSWORD: mongoexpresspass
+  volumes:
+    mongoData:
